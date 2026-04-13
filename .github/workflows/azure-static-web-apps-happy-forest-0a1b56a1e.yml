@@ -32,6 +32,13 @@ jobs:
           api_location: "" # Api source code path - optional
           output_location: "build" # Built app content directory - optional
           ###### End of Repository/Build Configurations ######
+        env:
+          REACT_APP_CLIENT_ID: ${{ secrets.REACT_APP_CLIENT_ID }}
+          REACT_APP_AUTHORITY: ${{ secrets.REACT_APP_AUTHORITY }}
+          REACT_APP_KNOWN_AUTHORITY: ${{ secrets.REACT_APP_KNOWN_AUTHORITY }}
+          REACT_APP_REDIRECT_URI: ${{ secrets.REACT_APP_REDIRECT_URI }}
+          REACT_APP_API_GATEWAY_URL: ${{ secrets.REACT_APP_API_GATEWAY_URL }}
+          REACT_APP_API_SCOPE: ${{ secrets.REACT_APP_API_SCOPE }}
 
   close_pull_request_job:
     if: github.event_name == 'pull_request' && github.event.action == 'closed'
